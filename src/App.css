@@ -182,3 +182,268 @@
     border-right-color: var(--border);
   }
 }
+/* ================================
+   EVERMORE MOBILE RESPONSIVENESS
+   ================================ */
+
+@media (max-width: 768px) {
+  /* Keep the whole page visible */
+  .landing-page {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    padding: 18px 20px;
+    gap: 12px;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  /* Keep navigation links visible on phones */
+  .nav-links {
+    display: flex;
+    gap: 12px;
+    font-size: 11px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    white-space: nowrap;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .login-btn {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .join-btn {
+    padding: 10px 13px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  /* HERO */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding: 55px 20px 40px;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-badge {
+    font-size: 11px;
+    padding: 9px 13px;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 13vw, 70px);
+    line-height: 0.98;
+    margin: 25px 0;
+  }
+
+  .hero-content > p {
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 100%;
+  }
+
+  /* HERO BUTTONS */
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  .hero-actions button {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  /* MEMBER PREVIEW */
+  .member-preview {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .member-preview span {
+    font-size: 10px;
+  }
+
+  /* PROGRESS CARD */
+  .hero-card {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .card-header h3 {
+    font-size: 22px;
+  }
+
+  .streak-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .stat {
+    min-width: 0;
+  }
+
+  .stat strong {
+    font-size: 18px;
+  }
+
+  /* FEATURES */
+  .features-section {
+    padding: 70px 20px;
+  }
+
+  .section-heading h2 {
+    font-size: 36px;
+    line-height: 1.1;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .feature-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* CTA */
+  .cta-section {
+    margin: 0 20px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .cta-content h2 {
+    font-size: 28px;
+  }
+
+  .cta-btn {
+    width: 100%;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 50px 20px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 20px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-links,
+  .social-links {
+    width: 100%;
+  }
+
+  .copyright {
+    grid-column: 1 / -1;
+    font-size: 11px;
+  }
+}
+
+
+/* VERY SMALL PHONES */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 16px 18px;
+  }
+
+  .navbar .logo {
+    font-size: 18px;
+  }
+
+  .nav-links {
+    gap: 7px;
+    font-size: 9px;
+  }
+
+  .login-btn {
+    display: none;
+  }
+
+  .join-btn {
+    padding: 9px 11px;
+    font-size: 10px;
+  }
+
+  .hero {
+    padding: 45px 18px 35px;
+  }
+
+  .hero h1 {
+    font-size: 50px;
+  }
+
+  .hero-content > p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .hero-card {
+    padding: 18px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .features-section {
+    padding: 55px 18px;
+  }
+
+  .section-heading h2 {
+    font-size: 32px;
+  }
+
+  .feature-card {
+    padding: 22px;
+  }
+
+  .cta-section {
+    margin: 0 18px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+  }
+}

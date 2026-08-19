@@ -1,5 +1,6 @@
 import {
   Bell,
+  Flag,
   Home as HomeIcon,
   LogOut,
   Menu,
@@ -43,6 +44,15 @@ function Home() {
   const [loadingComments, setLoadingComments] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [submittingComment, setSubmittingComment] = useState(false);
+
+  // =========================
+  // REPORT STATES
+  // =========================
+  const [showReport, setShowReport] = useState(false);
+  const [reportedPost, setReportedPost] = useState(null);
+  const [reportReason, setReportReason] = useState("");
+  const [reportDetails, setReportDetails] = useState("");
+  const [submittingReport, setSubmittingReport] = useState(false);
 
   // =========================
   // FETCH POSTS
@@ -229,6 +239,7 @@ function Home() {
 
     if (!user) {
       navigate("/login");
+      setSubmittingComment(false);
       return;
     }
 
@@ -252,13 +263,10 @@ function Home() {
 
     setCommentText("");
 
-    // Get fresh comments
     await fetchComments(selectedPost.id);
 
-    // Update post comment count
     await fetchPosts();
 
-    // Update selected post count
     setSelectedPost((current) =>
       current
         ? {
@@ -270,6 +278,74 @@ function Home() {
     );
 
     setSubmittingComment(false);
+  };
+
+  // =========================
+  // OPEN REPORT
+  // =========================
+  const openReport = (post) => {
+    setReportedPost(post);
+    setReportReason("");
+    setReportDetails("");
+    setShowReport(true);
+  };
+
+  // =========================
+  // CLOSE REPORT
+  // =========================
+  const closeReport = () => {
+    setShowReport(false);
+    setReportedPost(null);
+    setReportReason("");
+    setReportDetails("");
+  };
+
+  // =========================
+  // SUBMIT REPORT
+  // =========================
+  const handleReport = async (e) => {
+    e.preventDefault();
+
+    if (!reportReason || !reportedPost) return;
+
+    setSubmittingReport(true);
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      navigate("/login");
+      setSubmittingReport(false);
+      return;
+    }
+
+    const { error } = await supabase
+      .from("reports")
+      .insert({
+        reporter_id: user.id,
+        post_id: reportedPost.id,
+        reason: reportReason,
+        details: reportDetails.trim() || null,
+      });
+
+    if (error) {
+      console.error("Report error:", error);
+
+      alert(
+        "Unable to submit report. Please try again."
+      );
+
+      setSubmittingReport(false);
+      return;
+    }
+
+    alert(
+      "Thank you. Your report has been submitted and will be reviewed."
+    );
+
+    setSubmittingReport(false);
+    closeReport();
   };
 
   // =========================
@@ -381,28 +457,32 @@ function Home() {
           </button>
 
           <button
-  className="nav-item"
-  onClick={() => navigate("/profile")}
->
-  <User size={19} />
-  <span>Profile</span>
-</button>
+            className="nav-item"
+            onClick={() => navigate("/profile")}
+          >
+            <User size={19} />
+            <span>Profile</span>
+          </button>
 
           <button
-  className="nav-item"
-  onClick={() => navigate("/leaderboard")}
->
-  <Trophy size={19} />
-  <span>Leaderboard</span>
-</button>
+            className="nav-item"
+            onClick={() =>
+              navigate("/leaderboard")
+            }
+          >
+            <Trophy size={19} />
+            <span>Leaderboard</span>
+          </button>
 
-         <button
-  className="nav-item"
-  onClick={() => navigate("/settings")}
->
-  <Settings size={19} />
-  <span>Settings</span>
-</button>
+          <button
+            className="nav-item"
+            onClick={() =>
+              navigate("/settings")
+            }
+          >
+            <Settings size={19} />
+            <span>Settings</span>
+          </button>
 
         </nav>
 
@@ -619,6 +699,17 @@ function Home() {
                           0}
                       </button>
 
+                      {/* REPORT */}
+                      <button
+                        onClick={() =>
+                          openReport(post)
+                        }
+                        title="Report this post"
+                      >
+                        <Flag size={16} />
+                        Report
+                      </button>
+
                     </div>
 
                   </article>
@@ -682,12 +773,14 @@ function Home() {
 
               </div>
 
-             <button
-  className="view-profile-btn"
-  onClick={() => navigate("/profile")}
->
-  View profile
-</button>
+              <button
+                className="view-profile-btn"
+                onClick={() =>
+                  navigate("/profile")
+                }
+              >
+                View profile
+              </button>
 
             </div>
 
@@ -741,7 +834,6 @@ function Home() {
 
           <div className="comments-modal">
 
-            {/* COMMENTS HEADER */}
             <div className="comments-header">
 
               <div>
@@ -765,7 +857,6 @@ function Home() {
 
             </div>
 
-            {/* COMMENTS BODY */}
             <div className="comments-body">
 
               {loadingComments ? (
@@ -839,7 +930,6 @@ function Home() {
 
             </div>
 
-            {/* ADD COMMENT */}
             <form
               className="comment-form"
               onSubmit={handleAddComment}
@@ -869,6 +959,176 @@ function Home() {
                 {submittingComment
                   ? "Sending..."
                   : "Send"}
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      )}
+
+      {/* =========================
+          REPORT MODAL
+      ========================= */}
+      {showReport && reportedPost && (
+
+        <div className="comments-overlay">
+
+          <div className="comments-modal">
+
+            <div className="comments-header">
+
+              <div>
+                <h2>
+                  Report post
+                </h2>
+
+                <p>
+                  Help us keep Evermore safe.
+                </p>
+              </div>
+
+              <button
+                className="comments-close"
+                onClick={closeReport}
+              >
+                <X size={22} />
+              </button>
+
+            </div>
+
+            <form
+              onSubmit={handleReport}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+                padding: "20px",
+              }}
+            >
+
+              <div>
+
+                <label
+                  htmlFor="report-reason"
+                  style={{
+                    display: "block",
+                    marginBottom: "8px",
+                    fontWeight: 600,
+                  }}
+                >
+                  Why are you reporting this post?
+                </label>
+
+                <select
+                  id="report-reason"
+                  value={reportReason}
+                  onChange={(e) =>
+                    setReportReason(
+                      e.target.value
+                    )
+                  }
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    borderRadius: "10px",
+                    border: "1px solid #ddd",
+                  }}
+                >
+
+                  <option value="">
+                    Select a reason
+                  </option>
+
+                  <option value="Child safety">
+                    Child safety / suspected CSAE
+                  </option>
+
+                  <option value="Sexual content">
+                    Sexual or inappropriate content
+                  </option>
+
+                  <option value="Harassment">
+                    Harassment or bullying
+                  </option>
+
+                  <option value="Hate speech">
+                    Hate speech
+                  </option>
+
+                  <option value="Violence">
+                    Violence or dangerous content
+                  </option>
+
+                  <option value="Spam">
+                    Spam or scam
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+              <div>
+
+                <label
+                  htmlFor="report-details"
+                  style={{
+                    display: "block",
+                    marginBottom: "8px",
+                    fontWeight: 600,
+                  }}
+                >
+                  Additional details
+                </label>
+
+                <textarea
+                  id="report-details"
+                  placeholder="Tell us more about the problem..."
+                  value={reportDetails}
+                  onChange={(e) =>
+                    setReportDetails(
+                      e.target.value
+                    )
+                  }
+                  rows={4}
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    borderRadius: "10px",
+                    border: "1px solid #ddd",
+                    resize: "vertical",
+                  }}
+                />
+
+              </div>
+
+              <button
+                type="submit"
+                disabled={
+                  submittingReport ||
+                  !reportReason
+                }
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "8px",
+                }}
+              >
+
+                <Flag size={17} />
+
+                {submittingReport
+                  ? "Submitting..."
+                  : "Submit report"}
+
               </button>
 
             </form>

@@ -163,14 +163,14 @@ const ChildSafety = () => {
           <p>
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:mammieflorida@gmail.com"
+              href="mailto:sannim316@gmail.com"
               style={{
                 color: "#6d28d9",
                 fontWeight: 700,
                 textDecoration: "none",
               }}
             >
-              mammieflorida@gmail.com
+              sannim316@gmail.com
             </a>
           </p>
 

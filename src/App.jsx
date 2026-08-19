@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Leaderboard from "./pages/Leaderboard";
 import Settings from "./pages/Settings";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ChildSafety from "./pages/ChildSafety";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/child-safety" element={<ChildSafety />} />
       </Routes>
     </BrowserRouter>
   );

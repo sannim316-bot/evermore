@@ -1,110 +1,215 @@
-import LegalLayout from "../components/LegalLayout";
-import { CONTACT_EMAIL, TELEGRAM_URL } from "../lib/links";
+import React from "react";
 
-export default function ChildSafety() {
+const ChildSafety = () => {
   return (
-    <LegalLayout
-      title="Evermore Child Safety Standards"
-      updated="September 21, 2026"
-      intro="Our commitment to protecting children and keeping our community safe and respectful."
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#f7f5ff",
+        color: "#1f1f2e",
+        fontFamily:
+          "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      }}
     >
-      <section>
-        <h2>Our commitment</h2>
-        <p>
-          Evermore has zero tolerance for child sexual abuse and exploitation
-          (CSAE), child sexual abuse material (CSAM), grooming, or any other
-          form of exploitation or abuse involving children. Content or
-          behaviour that exploits, abuses or endangers children is strictly
-          prohibited in Evermore and in any community space we operate.
-        </p>
-      </section>
+      <header
+        style={{
+          background: "#6d28d9",
+          color: "#ffffff",
+          padding: "50px 20px",
+          textAlign: "center",
+        }}
+      >
+        <h1
+          style={{
+            margin: 0,
+            fontSize: "clamp(32px, 6vw, 48px)",
+            fontWeight: 800,
+          }}
+        >
+          Evermore Child Safety Standards
+        </h1>
 
-      <section>
-        <h2>How Evermore is designed</h2>
-        <p>
-          The Evermore app does not have public posts, comments, direct
-          messaging or user profiles. Personal notes ("moments") are private and
-          stored only on the user's device. Community conversation takes place
-          in our channel on Telegram, which is subject to both these standards
-          and Telegram's own rules and safety tools.
+        <p
+          style={{
+            margin: "14px auto 0",
+            maxWidth: "700px",
+            fontSize: "17px",
+            lineHeight: 1.6,
+            opacity: 0.95,
+          }}
+        >
+          Our commitment to protecting children and maintaining a safe,
+          respectful online community.
         </p>
-      </section>
+      </header>
 
-      <section>
-        <h2>Prohibited content and behaviour</h2>
-        <ul>
-          <li>Child sexual abuse or exploitation in any form.</li>
-          <li>Creating, uploading, sharing, requesting or distributing CSAM.</li>
-          <li>Sexual grooming or inappropriate sexual communication with minors.</li>
-          <li>Sexualisation or exploitation of children.</li>
-          <li>Attempts to facilitate or encourage the exploitation of children.</li>
-          <li>Any other content or behaviour that violates applicable child safety laws.</li>
-        </ul>
-      </section>
+      <main
+        style={{
+          maxWidth: "900px",
+          margin: "0 auto",
+          padding: "45px 20px 70px",
+        }}
+      >
+        <section style={{ marginBottom: "40px" }}>
+          <h2>Our Commitment to Child Safety</h2>
 
-      <section>
-        <h2>Reporting concerns</h2>
-        <p>
-          If you see content or behaviour in our community that may involve
-          child sexual abuse or exploitation, please:
-        </p>
-        <ul>
-          <li>Report it to Telegram using Telegram's in-app report tools.</li>
-          <li>
-            Email our designated child safety contact (below) with enough detail
-            for us to act, such as a link to the message or channel.
-          </li>
-          <li>
-            If a child may be in immediate danger, contact local emergency
-            services. To report suspected CSAM, you can also use your national
-            hotline, such as the NCMEC CyberTipline (report.cybertip.org) in the
-            United States, or contact local law enforcement.
-          </li>
-        </ul>
-      </section>
+          <p>
+            Evermore is committed to maintaining a safe environment for all
+            users. We have zero tolerance for child sexual abuse and
+            exploitation (CSAE), child sexual abuse material (CSAM), grooming,
+            or any other form of exploitation or abuse involving children.
+          </p>
 
-      <section>
-        <h2>Enforcement</h2>
-        <p>
-          We review reports promptly. Depending on severity, we may remove
-          content, remove or ban members from our community channel, and report
-          to the relevant authorities. Where legally required, we will preserve
-          and provide relevant information to law enforcement.
-        </p>
-      </section>
+          <p>
+            Content or behaviour that exploits, abuses, or endangers children
+            is strictly prohibited on Evermore.
+          </p>
+        </section>
 
-      <section>
-        <h2>Our community channel</h2>
-        <p>
-          Our community is hosted at{" "}
-          <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer">
-            the Evermore Telegram channel
-          </a>
-          . Members are expected to follow our community rules and applicable
-          laws.
-        </p>
-      </section>
+        <section style={{ marginBottom: "40px" }}>
+          <h2>Prohibited Content and Behaviour</h2>
 
-      <section>
-        <h2>Child safety contact</h2>
-        <p>
-          <strong>Email:</strong>{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-        </p>
-        <p>
-          Please share enough information for us to understand and investigate
-          the concern while avoiding unnecessary sharing of sensitive personal
-          information.
-        </p>
-      </section>
+          <p>
+            Evermore prohibits the following activities:
+          </p>
 
-      <section>
-        <h2>Updates to these standards</h2>
-        <p>
-          We may update these standards to reflect changes to our services,
-          safety practices or applicable laws.
+          <ul>
+            <li>
+              Child sexual abuse or exploitation in any form.
+            </li>
+            <li>
+              Creating, uploading, sharing, requesting, or distributing CSAM.
+            </li>
+            <li>
+              Sexual grooming or inappropriate sexual communication with
+              minors.
+            </li>
+            <li>
+              Sexualisation or exploitation of children.
+            </li>
+            <li>
+              Attempts to facilitate or encourage the exploitation of
+              children.
+            </li>
+            <li>
+              Any other content or behaviour that violates applicable child
+              safety laws.
+            </li>
+          </ul>
+        </section>
+
+        <section style={{ marginBottom: "40px" }}>
+          <h2>Reporting Child Safety Concerns</h2>
+
+          <p>
+            Users who encounter content or behaviour that may involve child
+            sexual abuse or exploitation should report it through the
+            available reporting mechanisms within Evermore.
+          </p>
+
+          <p>
+            Reports involving child safety are treated seriously and may be
+            reviewed and escalated where appropriate.
+          </p>
+
+          <p>
+            When necessary and where legally required, Evermore may cooperate
+            with relevant law enforcement authorities and other appropriate
+            authorities.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: "40px" }}>
+          <h2>Enforcement</h2>
+
+          <p>
+            Evermore may take action against accounts, content, or behaviour
+            that violates our child safety standards. Depending on the nature
+            and severity of a violation, actions may include content removal,
+            account restrictions, suspension, or permanent account removal.
+          </p>
+
+          <p>
+            We may also preserve or provide relevant information to
+            appropriate authorities when required by applicable law.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: "40px" }}>
+          <h2>Prevention and Safety</h2>
+
+          <p>
+            We work to promote responsible use of Evermore and to reduce the
+            risk of harmful interactions involving minors. Users are expected
+            to follow our community rules and applicable laws when using the
+            platform.
+          </p>
+
+          <p>
+            Evermore does not permit users to use the platform for the
+            exploitation or abuse of children.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: "40px" }}>
+          <h2>Contact</h2>
+
+          <p>
+            If you have information about a child safety concern, suspected
+            CSAM, or child sexual exploitation associated with Evermore, you
+            can contact our designated child safety contact:
+          </p>
+
+          <p>
+            <strong>Email:</strong>{" "}
+            <a
+              href="mailto:sannim316@gmail.com"
+              style={{
+                color: "#6d28d9",
+                fontWeight: 700,
+                textDecoration: "none",
+              }}
+            >
+              sannim316@gmail.com
+            </a>
+          </p>
+
+          <p>
+            Please provide enough information for us to understand and
+            investigate the concern, while avoiding unnecessary sharing of
+            sensitive personal information.
+          </p>
+        </section>
+
+        <section>
+          <h2>Updates to These Standards</h2>
+
+          <p>
+            Evermore may update these Child Safety Standards from time to time
+            to reflect changes to our services, safety practices, or applicable
+            laws.
+          </p>
+
+          <p>
+            <strong>Last updated:</strong> August 2026
+          </p>
+        </section>
+      </main>
+
+      <footer
+        style={{
+          background: "#18181b",
+          color: "#d4d4d8",
+          textAlign: "center",
+          padding: "25px 20px",
+        }}
+      >
+        <p style={{ margin: 0 }}>
+          © 2026 Evermore. All rights reserved.
         </p>
-      </section>
-    </LegalLayout>
+      </footer>
+    </div>
   );
-}
+};
+
+export default ChildSafety;

@@ -27,7 +27,7 @@ export default function Community() {
         </span>
         <h2>The conversation lives on Telegram</h2>
         <p className="muted">
-          Join the Evermore channel for announcements, updates and to meet the
+          Join the Lagos Life channel for announcements, updates and to meet the
           people behind the streaks.
         </p>
         <TelegramLink className="btn btn-telegram btn-block">

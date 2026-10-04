@@ -1,4 +1,4 @@
-# Play Store checklist for the no-login Evermore
+# Play Store checklist for the no-login Lagos Life
 
 The app changed a lot (no accounts, no backend, no user-generated content), so
 several Play Console answers need to change with it. Answer everything based on

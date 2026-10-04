@@ -9,8 +9,8 @@ export const BADGES = [
   { id: "moment-10", emoji: "📚", title: "Storyteller", desc: "Save 10 moments.", test: (s) => s.stats.moments >= 10 },
   { id: "points-100", emoji: "💯", title: "Century", desc: "Earn 100 points.", test: (s) => s.points >= 100 },
   { id: "points-500", emoji: "🚀", title: "Rising star", desc: "Earn 500 points.", test: (s) => s.points >= 500 },
-  { id: "points-2000", emoji: "👑", title: "Evermore legend", desc: "Earn 2,000 points.", test: (s) => s.points >= 2000 },
-  { id: "community", emoji: "💬", title: "Part of the crowd", desc: "Visit the Evermore community on Telegram.", test: (s) => s.visitedCommunity },
+  { id: "points-2000", emoji: "👑", title: "Lagos Life legend", desc: "Earn 2,000 points.", test: (s) => s.points >= 2000 },
+  { id: "community", emoji: "💬", title: "Part of the crowd", desc: "Visit the Lagos Life community on Telegram.", test: (s) => s.visitedCommunity },
 ];
 
 export const unlocked = (s) => BADGES.filter((b) => b.test(s));

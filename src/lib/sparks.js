@@ -28,7 +28,7 @@ export const SPARKS = [
   { cat: "Create", text: "Plan a simple meal you'd be proud to cook this week." },
   { cat: "Learn", text: "Read for 15 minutes. Anything you enjoy counts." },
   { cat: "Reflect", text: "What would you tell a friend in your exact situation?" },
-  { cat: "Connect", text: "Join the Evermore Telegram channel and say hi." },
+  { cat: "Connect", text: "Join the Lagos Life Telegram channel and say hi." },
   { cat: "Move", text: "Dance to one full song. Seriously, the whole song." },
   { cat: "Create", text: "Make a playlist for the mood you want tomorrow to have." },
   { cat: "Learn", text: "Pick a goal and write the very next physical action for it." },

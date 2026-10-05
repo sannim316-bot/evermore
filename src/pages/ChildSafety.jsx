@@ -4,25 +4,25 @@ import { CONTACT_EMAIL, TELEGRAM_URL } from "../lib/links";
 export default function ChildSafety() {
   return (
     <LegalLayout
-      title="Evermore Child Safety Standards"
+      title="Lagos Life Child Safety Standards"
       updated="September 21, 2026"
       intro="Our commitment to protecting children and keeping our community safe and respectful."
     >
       <section>
         <h2>Our commitment</h2>
         <p>
-          Evermore has zero tolerance for child sexual abuse and exploitation
+          Lagos Life has zero tolerance for child sexual abuse and exploitation
           (CSAE), child sexual abuse material (CSAM), grooming, or any other
           form of exploitation or abuse involving children. Content or
           behaviour that exploits, abuses or endangers children is strictly
-          prohibited in Evermore and in any community space we operate.
+          prohibited in Lagos Life and in any community space we operate.
         </p>
       </section>
 
       <section>
-        <h2>How Evermore is designed</h2>
+        <h2>How Lagos Life is designed</h2>
         <p>
-          The Evermore app does not have public posts, comments, direct
+          The Lagos Life app does not have public posts, comments, direct
           messaging or user profiles. Personal notes ("moments") are private and
           stored only on the user's device. Community conversation takes place
           in our channel on Telegram, which is subject to both these standards
@@ -78,7 +78,7 @@ export default function ChildSafety() {
         <p>
           Our community is hosted at{" "}
           <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer">
-            the Evermore Telegram channel
+            the Lagos Life Telegram channel
           </a>
           . Members are expected to follow our community rules and applicable
           laws.

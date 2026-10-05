@@ -17,7 +17,7 @@ export default function Welcome() {
       <div className="glow glow-b" />
       <form className="welcome-inner" onSubmit={submit}>
         <div className="logo logo-lg">
-          evermore<span>.</span>
+          Lagos Life<span>.</span>
         </div>
         <h1 id="welcome-title">Keep showing up.</h1>
         <p className="welcome-lead">

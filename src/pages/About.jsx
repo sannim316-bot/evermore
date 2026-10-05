@@ -58,7 +58,7 @@ export default function About() {
       <section className="card about-note">
         <h2>Your data stays with you</h2>
         <p className="muted">
-          Evermore has no accounts and no servers. Your name, points, streak and
+          Lagos Life has no accounts and no servers. Your name, points, streak and
           moments are stored only on this device, and we don't collect them.
         </p>
       </section>
@@ -94,7 +94,7 @@ export default function About() {
         )}
       </section>
 
-      <p className="muted small center">Evermore v{APP_VERSION} · © 2026 Evermore</p>
+      <p className="muted small center">Lagos Life v{APP_VERSION} · © 2026 Lagos Life</p>
     </>
   );
 }

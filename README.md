@@ -1,4 +1,4 @@
-# Evermore
+# Lagos Life
 
 A small, local-first daily-habit app: check in, keep a streak, complete a daily
 spark, save private moments, earn badges. Community lives on Telegram.

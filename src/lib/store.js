@@ -1,7 +1,7 @@
 import { useSyncExternalStore } from "react";
 
 /**
- * Evermore keeps everything on the device. There are no accounts and no
+ * Lagos Life keeps everything on the device. There are no accounts and no
  * servers: this tiny store persists to localStorage and nothing else.
  */
 const KEY = "evermore:v1";

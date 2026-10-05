@@ -25,7 +25,7 @@ export default function TelegramCard() {
         <Send size={22} />
       </span>
       <span className="tg-text">
-        <strong>Join the Evermore community</strong>
+        <strong>Join the Lagos Life community</strong>
         <span>Chat, share and stay in the loop on Telegram.</span>
       </span>
       <ArrowUpRight size={20} className="tg-arrow" aria-hidden="true" />

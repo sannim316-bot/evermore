@@ -7,14 +7,14 @@ export default function LegalLayout({ title, updated, intro, children }) {
     <div className="legal">
       <header className="legal-hero">
         <Link to="/" className="legal-back">
-          <ArrowLeft size={16} aria-hidden="true" /> Back to Evermore
+          <ArrowLeft size={16} aria-hidden="true" /> Back to Lagos Life
         </Link>
         <h1>{title}</h1>
         {intro && <p>{intro}</p>}
         <p className="legal-updated">Last updated: {updated}</p>
       </header>
       <main className="legal-body">{children}</main>
-      <footer className="legal-footer">© 2026 Evermore. All rights reserved.</footer>
+      <footer className="legal-footer">© 2026 Lagos Life. All rights reserved.</footer>
     </div>
   );
 }

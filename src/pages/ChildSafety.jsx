@@ -1,5 +1,5 @@
 import LegalLayout from "../components/LegalLayout";
-import { CONTACT_EMAIL, TELEGRAM_URL } from "../lib/links";
+import { CONTACT_EMAIL, CONTACT_PHONE, TELEGRAM_URL } from "../lib/links";
 
 export default function ChildSafety() {
   return (
@@ -90,6 +90,10 @@ export default function ChildSafety() {
         <p>
           <strong>Email:</strong>{" "}
           <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+        </p>
+        <p>
+          <strong>Phone:</strong>{" "}
+          <a href={`tel:+234${CONTACT_PHONE.replace(/^0/, "")}`}>{CONTACT_PHONE}</a>
         </p>
         <p>
           Please share enough information for us to understand and investigate

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ChevronRight, Mail, ShieldCheck, FileText } from "lucide-react";
+import { ArrowLeft, ChevronRight, Mail, Phone, ShieldCheck, FileText } from "lucide-react";
 import { useStore, resetAll } from "../lib/store";
 import { setName } from "../lib/progress";
 import { showToast } from "../lib/toast";
-import { APP_VERSION, CONTACT_EMAIL } from "../lib/links";
+import { APP_VERSION, CONTACT_EMAIL, CONTACT_PHONE } from "../lib/links";
 
 export default function About() {
   const { name } = useStore();
@@ -77,6 +77,11 @@ export default function About() {
         <li>
           <a href={`mailto:${CONTACT_EMAIL}`} className="card link-row">
             <Mail size={19} aria-hidden="true" /> Contact us <ChevronRight size={18} aria-hidden="true" />
+          </a>
+        </li>
+        <li>
+          <a href={`tel:+234${CONTACT_PHONE.replace(/^0/, "")}`} className="card link-row">
+            <Phone size={19} aria-hidden="true" /> {CONTACT_PHONE} <ChevronRight size={18} aria-hidden="true" />
           </a>
         </li>
       </ul>
